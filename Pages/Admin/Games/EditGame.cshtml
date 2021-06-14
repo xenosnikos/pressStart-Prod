@@ -1,0 +1,79 @@
+﻿@page
+@model PressStart.Pages.Admin.Games.EditGameModel
+@{
+}
+
+<h1>Edit Game</h1>
+<div class="mt-3">
+  <form method="POST" enctype="multipart/form-data" asp-controller="FileUpload" asp-action="Index">
+
+    <div class="form-group row">
+      <label asp-for="GameId" class="col-sm-2 col-form-label">Game ID</label>
+      <div class="col-sm-10">
+        <input asp-for="GameId" type="text" class="form-control" value="@Model.GameEdit.GameId"/>
+        <span asp-validation-for="GameId"></span>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label asp-for="GameName" class="col-sm-2 col-form-label">Game Name</label>
+      <div class="col-sm-10">
+        <input asp-for="GameName" type="text" class="form-control" value="@Model.GameEdit.GameName"/>
+        <span asp-validation-for="GameName"></span>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label asp-for="GameType" class="col-sm-2 col-form-label">Game Type</label>
+      <div class="col-sm-10">
+        <select asp-for="GameType" class="form-control" id="type">
+          <option asp-for="GameType" value="NES">NES</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label asp-for="GamePath" class="col-sm-2 col-form-label">Game Path</label>
+      <div class="col-sm-10">
+        <input asp-for="GamePath" class="form-control" value="@Model.GameEdit.GamePath" />
+        <span asp-validation-for="GamePath"></span>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label asp-for="ThumbnailPath" class="col-sm-2 col-form-label">Thumbnail Path</label>
+      <div class="col-sm-10">
+        <input asp-for="ThumbnailPath" class="form-control" value="@Model.GameEdit.ThumbnailPath"/>
+        <span asp-validation-for="ThumbnailPath"></span>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label asp-for="Description" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <textarea asp-for="Description" class="form-control" rows="5">@Html.DisplayTextFor(model => model.GameEdit.Description)</textarea>
+        <span asp-validation-for="Description"></span>
+      </div>
+    </div>
+
+    @* <div class="form-group row">
+
+      <label asp-for="UploadThumb" class="col-sm-2 col-form-label">
+        <p>Upload Thumbail</p>
+      </label>
+      <input  asp-for="UploadThumb" type="file" name="thumbnail" multiple />
+    </div>
+    
+    <div class="form-group row">
+
+      <label asp-for="UploadRom" class="col-sm-2 col-form-label">
+        <p>Upload Game Rom</p>
+      </label>
+      <input  asp-for="UploadRom" type="file" name="romfile" multiple />
+    </div> *@
+
+    <input asp-page="Admin" class="btn btn-primary" type="submit" value="Edit" />
+  </form>
+</div>
+

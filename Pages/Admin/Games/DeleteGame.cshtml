@@ -1,0 +1,12 @@
+﻿@page
+@model PressStart.Pages.DeleteGameModel
+@{
+}
+
+<h3>Are you sure you want to delete this?</h3>
+
+<form method="post">
+        <input type="hidden" asp-for="DelGame.GameId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="/Admin/Index">Back to List</a>
+</form>

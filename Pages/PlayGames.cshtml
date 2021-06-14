@@ -1,0 +1,148 @@
+﻿@page "{id:int}"
+@model PressStart.Pages.PlayGamesModel
+@{
+    ViewData["Title"] = "Press Start!";
+}
+
+<div class="container">
+    <script>window.onload = function () { nes_load_url("nes-canvas", "@Model.Game.GamePath "); }</script>
+    <script type="text/javascript" src="~/js/nes-embed.js"></script>
+
+    <div class="text-center">
+        <div id="box" style="margin: auto; width: 100%;">
+            <canvas id="nes-canvas" width="256" height="240" style="width: 100%" />
+        </div>
+        <p><button class="btn btn-secondary" onclick="goFullScreen();">Go Fullscreen</button></p>
+        
+        <button onclick="muteSound();" id="mute">Mute</button>
+
+        <p>DPad: Arrow keys<br />Start: Return, Select: Tab<br />A Button: A, B Button: S</p>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-12 pb-4">
+                <h1>Comments</h1>
+                @foreach (var c in Model.CommentList)
+                {
+                    <div class="comment mt-4 text-justify">
+                        <h4>@Html.DisplayNameFor(model => User.Identity.Name)</h4>
+                        <!-- <span>- 20 October, 2018</span> -->
+                        <br>
+                        <p>@c.CommentText</p>
+                    </div>
+                }
+                
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                <form method="post" id="algin-form">
+                        <h4>Leave a comment</h4>
+                        <label for="message">Message</label>
+                        
+                        <input type="text" style="display:none" asp-for= "User" name="username" value="@User.Identity.Name" />
+                        <input type="text" style="display:none" asp-for= "Game" name="username" value="@Model.Game.GameId" />
+                        <div class="form-group">
+                            <textarea asp-for="CommentText" name="CommentText" id="" msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                        </div>
+
+                
+                    <div class="form-group"> 
+                        <button type="submit" id="post" class="btn">Post Comment</button> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@* <div class="container">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="card comment-card">
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="comment-box ml-2">
+                                <form method="post">
+                                    <h4 class="add-comment">Add a comment</h4>
+                                    <div class="rating">
+                                        <input type="radio" asp-for="Rating" name="Rating" value="5" id="5">
+                                        <label for="5">☆</label>
+                                        <input type="radio" asp-for="Rating" name="Rating" value="4" id="4">
+                                        <label for="4">☆</label>
+                                        <input type="radio" asp-for="Rating" name="Rating" value="3" id="3">
+                                        <label for="3">☆</label>
+                                        <input type="radio" asp-for="Rating" name="Rating" value="2" id="2">
+                                        <label for="2">☆</label>
+                                        <input type="radio" asp-for="Rating" name="Rating" value="1" id="1">
+                                        <label for="1">☆</label>
+                                    </div>
+                                </form>
+                                <div class="comment-area">
+                                    <textarea asp-for="CommentText" class="form-control"
+                                        placeholder="What did you think about the game?" rows="4"></textarea>
+                                </div>
+                                <div class="comment-btns mt-2">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="pull-left">
+                                                <button type="reset"
+                                                    class="btn btn-success btn-sm cancel">Clear</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="pull-right">
+                                                <button type="submit" class="btn btn-success send btn-sm">Send <i
+                                                        class="fa fa-long-arrow-right ml-1"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div asp-validation-summary="ModelOnly" class="col-sm-5 col-md-6 col-12 pb-4">
+                    <form method="post">
+                        <h1>Comments</h1>
+                        @foreach (var c in Model.CommentList)
+                        {
+                            <div class="comment mt-4 text-justify float-left">
+                                <h4 asp-for="UserName">@Html.DisplayFor(model => User.Identity.Name)</h4>
+                                <span>- 20 October, 2018</span>
+                                <br>
+                                <p asp-for="Comments.CommentText">@c.CommentText</p>
+                            </div>
+                        }
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div> *@
+
+<script>
+    var mutebtn = document.getElementById("mute");
+    muteSound = function () {
+        audio_ctx.mute();
+    }
+
+
+</script>
+
+<script>
+    function goFullScreen() {
+        var canvas = document.getElementById("nes-canvas");
+        if (canvas.requestFullScreen)
+            canvas.requestFullScreen();
+        else if (canvas.webkitRequestFullScreen)
+            canvas.webkitRequestFullScreen();
+        else if (canvas.mozRequestFullScreen)
+            canvas.mozRequestFullScreen();
+    }
+</script>

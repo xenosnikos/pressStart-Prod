@@ -1,0 +1,59 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!-- Featured / Play this with a Subscription? -->
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">
+          @Model.FeaturedGame.GameName
+      </h5>
+      <p class="card-body">
+          <img class="game-img" src="@Url.Content(Model.FeaturedGame.ThumbnailPath)">
+      </p>
+      <p class="card-text">
+          @Model.FeaturedGame.Description
+      </p>
+      <a asp-page="/PlayGames" asp-route-id="@Model.FeaturedGame.GameId" class="btn btn-primary">Play Now</a>
+    </div>
+    <div class="card-footer text-muted">
+      Number of times played:
+    </div>
+  </div>
+</div>
+
+<!-- Cards -->
+<div class="container">
+  <div class="row">
+    @foreach (var g in Model.GamesList)
+{
+  <div class="col">
+  <div class="card-column">
+    <div class="card card-solo">
+      <div class="card-body">
+        <h5 class="card-title">@g.GameName</h5>
+        <p class="card-body">
+          <img class="game-img" src="@Url.Content(g.ThumbnailPath)">
+        </p>
+        <p class="card-text">@g.GameType</p>
+        <p class="card-text">@g.Description</p>
+        <a asp-page="/PlayGames" asp-route-id="@g.GameId" class="btn btn-primary">Play Now</a>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  </div>
+  }
+  </div>
+</div>
+
+<a asp-page="/Games" asp-route-id="" class="">See All Games</a>
+

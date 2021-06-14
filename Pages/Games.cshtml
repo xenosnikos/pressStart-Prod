@@ -1,0 +1,30 @@
+﻿@page
+@model PressStart.Pages.GamesModel
+@{
+}
+
+<div class="container">
+  <div class="row">
+    @foreach (var g in Model.GamesList)
+{
+  <div class="col">
+  <div class="card-column">
+    <div class="card card-solo">
+      <div class="card-body">
+        <h5 class="card-title">@g.GameName</h5>
+        <p class="card-body">
+          <img class="game-img" src="@Url.Content(g.ThumbnailPath)">
+        </p>
+        <p class="card-text">@g.GameType</p>
+        <p class="card-text">@g.Description</p>
+        <a asp-page="/PlayGames" asp-route-id="@g.GameId" class="btn btn-primary">Play Now</a>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  </div>
+  }
+  </div>
+</div>

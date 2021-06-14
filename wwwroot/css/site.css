@@ -1,0 +1,221 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+
+/* Provide sufficient contrast against white background */
+
+a {
+    color: #2A4BB7;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #2A4BB7;
+    border-color: #FFFF25;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #2A4BB7;
+    border-color: #2A4BB7;
+}
+
+
+/* Navbar styles */
+
+.navbar-custom {
+    background-color: #fff;
+    border: black 3px solid;
+}
+
+.logo {
+    width: 250px;
+    height: 250px;
+    position: relative;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    /* Vertically center the text there */
+}
+
+/* Index Page */
+.game-img {
+    width: 200px;
+    height: 275px;
+}
+
+.card-solo {
+    margin-top: 25px;
+    width: 300px;
+    height: 700px;
+}
+
+/*PlayGames*/
+
+.unmute {
+    background-image: url(http://franriavilla.in/images/unmute.png);
+    background-size: cover;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.mute {
+    background-image: url(http://franriavilla.in/images/mute.png);
+}
+
+/* COMMENT BOX */
+
+/* .comment-card {
+    position: relative;
+    display: flex;
+    margin-right: 75px;
+    flex-direction: column;
+    min-width: 0;
+    height: 325px;
+    padding: 20px;
+    width: 450px;
+    word-wrap: break-word;
+    background-color: rgba(0, 0, 0, .5);
+    background-clip: border-box;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1)
+}
+
+.comment-box {
+    padding: 5px
+}
+
+.comment-area textarea {
+    resize: none;
+    border: 1px solid #ad9f9f
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ffffff;
+    outline: 0;
+    box-shadow: 0 0 0 1px rgb(255, 0, 0) !important
+}
+
+.send {
+    color: #fff;
+    background-color: #2A4BB7;
+    border-color: black
+}
+
+.send:hover {
+    color: #fff;
+    background-color: #355EE6;
+    border-color: black
+}
+
+.cancel {
+    color: #fff;
+    background-color: #D82B2C;
+    border-color: black;
+}
+
+.cancel:hover {
+    color: #fff;
+    background-color: #D84548;
+    border-color: black;
+}
+
+.rating {
+    display: flex;
+    margin-top: -10px;
+    flex-direction: row-reverse;
+    margin-left: -4px;
+    float: left
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+    position: relative;
+    width: 19px;
+    font-size: 25px;
+    color: #FFFF25;
+    cursor: pointer
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+} */
+
